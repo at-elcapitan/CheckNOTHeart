@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+    <div class="wrapper">
+        <form method="post">
+            <div class="form-body">
+                <div class="input">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" placeholder="Enter your username" required>
+                </div>
+
+                <div class="input">
+                    <label class="label" for="Password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                </div>
+                {% for message in get_flashed_messages() %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+            </div>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+CGREEN = "\x1b[32;1m" 
+CRED = "\x1b[31;1m"
+CYELLOW = "\x1b[33;1m"
+CBLUE = "\x1b[34;1m"
+CDEF = "\x1b[39;0m"
