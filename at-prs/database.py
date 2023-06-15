@@ -46,4 +46,4 @@ def close_database(*args):
 
 def __init__(app: flask.Flask):
     app.teardown_appcontext(close_database)
-    app.cli.add_command(on_init_database, "init-db")
+    app.cli.add_command(on_init_database, "make")

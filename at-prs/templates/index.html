@@ -12,7 +12,10 @@
 
 {% block title %} HOME {% endblock %}
 {% block btn1 %} inactive {% endblock %}
-{% block link %} <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+<script src="{{ url_for('static', filename='delete.js') }}"></script>
+{% endblock %}
 
 {% block main%}
 <div class="page">
@@ -62,7 +65,8 @@
                         <label>Health state (OK/Checked)</label>
                         <span class="check"><input type="checkbox" name="health" value="1"></span>
                     </div>
-
+                    
+                    <input type="hidden" name="CREATE"/>
                     <input type="submit" value="Submit">
                 </div>
             </form>
@@ -70,7 +74,24 @@
     </div>
 
     <div class="db-data">
-        
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Preasure</th>
+                <th>Heart Rate</th>
+                <th>Control</th>
+            </tr>
+            {% for x in data %}
+            <tr>
+                <td>{{ x['date'][:-7] }}</td>
+                <td>{{ x['press_high'] }}/{{ x['press_low'] }}</td>
+                <td>{{ x['heart_rate'] }}</td>
+                <td>
+                    <a class="btn small" onclick="DeleteI({{ x['id'] }}, '/')">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
     </div>
 </div>
 {% endblock %}

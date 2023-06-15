@@ -15,6 +15,7 @@
     border: 1px solid white;
     font-weight: 500;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -35,4 +36,9 @@ input .light{
     background-color: rgba(255, 255, 255, 0.212);
     padding: 10px;
     color: rgb(58, 58, 58);
+}
+
+.small {
+    padding: 2px 5px 2px 5px;
+    font-size: 15px;
 }

@@ -52,8 +52,9 @@ def return_to_session():
         g.user = None
         return
     
-    g.username = get_database().execute('SELECT username FROM users WHERE id = ?', (uid,)).fetchone()['username']
-    g.user = get_database().execute('SELECT * FROM users WHERE id = ?', (uid,))
+    req = get_database().execute('SELECT * FROM users WHERE id = ?', (uid,))
+    g.user = req
+    g.userneme = req.fetchone()['username']
 
 
 @bp.route("/logout")
