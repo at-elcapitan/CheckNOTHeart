@@ -13,22 +13,10 @@ from flask import (
 from .database import get_database
 from .authentication import login_required
 
-bp = Blueprint("index", __name__)
+bp = Blueprint("user", __name__)
 
 
-@bp.route('/')
+@bp.route('/user/<int:userid>')
 @login_required
-def data_index():
-    return render_template('index.html', userid = session['user_id'])
-
-
-@bp.route('/about')
-@login_required
-def data_about():
-    return render_template('about.html', userid = session['user_id'])
-
-
-@bp.route('/data')
-@login_required
-def data():
-    return render_template('data.html', userid = session['user_id'])
+def user_page(userid):
+    return f'<a href="/">Home</a>{userid}'

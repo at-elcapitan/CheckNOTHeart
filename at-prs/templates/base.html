@@ -1,17 +1,33 @@
+<!--
+ at-prs (c) by Vladislav 'ElCapitan' Nazarov
+ 
+ at-prs is licensed under a
+ Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+ 
+ You should have received a copy of the license along with this
+ work.  If not, see <http://creativecommons.org/licenses/by-nc-sa/3.0/>.
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>AT PRS - {% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
 </head>
 <body>
     <div class="display">
         <div class="wrapper">
                 <nav>
-                    <a class="{% block btn1 %}{% endblock %}" href="javascript:void()">Home</a>
-                    <a class="{% block btn2 %}{% endblock %}" href="javascript:void()">Data</a>
-                    <a class="{% block btn3 %}{% endblock %}" href="javascript:void()">About</a>
+                    <a class="btn {% block btn1 %}{% endblock %}" href="/">Home</a>
+                    <a class="btn {% block btn2 %}{% endblock %}" href="data">Data</a>
+                    <a class="btn {% block btn3 %}{% endblock %}" href="about">About</a>
+
+                    <div class="right">
+                        Logged in as <a class="user" href="user/{{ userid }}">{{ g.username }}</a>
+                        <a class="btn" href="logout">Logout</a>
+                    </div>
                 </nav>
 
                 <main>
@@ -20,7 +36,7 @@
 
                 <footer>
                     © AT PROJECT Limited, 2023
-                    <div class="left">GNU GPL3 rev. at-press_140620231126</div>
+                    <div class="left">CC BY-NC-SA-3</div>
                 </footer>
         </div>
     </div>

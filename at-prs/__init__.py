@@ -1,3 +1,11 @@
+# at-prs (c) by Vladislav 'ElCapitan' Nazarov
+# 
+# at-prs is licensed under a
+# Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+# 
+# You should have received a copy of the license along with this
+# work.  If not, see <http://creativecommons.org/licenses/by-nc-sa/3.0/>.
+
 # (c) AT PROJECT Limited 2023
 # at-prs made by ElCapitan
 
@@ -29,5 +37,8 @@ def create_app():
     from . import data
     app.register_blueprint(data.bp)
     app.add_url_rule('/', endpoint='index')
+
+    from . import user
+    app.register_blueprint(user.bp)
 
     return app

@@ -1,5 +1,15 @@
+/**
+ * at-prs (c) by Vladislav 'ElCapitan' Nazarov
+ * 
+ * at-prs is licensed under a
+ * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+ * 
+ * You should have received a copy of the license along with this
+ * work.  If not, see <http://creativecommons.org/licenses/by-nc-sa/3.0/>.
+ */
+
 form {
-    background-color: rgba(255, 255, 255, 0.116);
+    background-color: rgba(0, 0, 0, 0.05);
     backdrop-filter: blur(15px);
     position: absolute;    
     top: 50%;
@@ -36,8 +46,9 @@ form .input {
 
 form input {
     border: 1px solid rgb(179, 179, 179);
-    background-color: rgba(235, 235, 235, 0.384);
+    background-color: rgba(255, 255, 255, 0.212);
     padding: 10px;
+    color: rgb(58, 58, 58);
 }
 
 form input:hover {
@@ -55,7 +66,7 @@ form input[type='submit']{
     margin-top: 10px;
     align-self: center;
     padding: 6px 15px 6px;
-    color: rgb(94, 94, 94);
+    color: rgb(179, 179, 179);
     font-weight: 500;
     font-size: 16px;
     border: 1px solid rgb(163, 163, 163);

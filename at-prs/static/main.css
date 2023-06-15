@@ -1,12 +1,21 @@
+/**
+ * at-prs (c) by Vladislav 'ElCapitan' Nazarov
+ * 
+ * at-prs is licensed under a
+ * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+ * 
+ * You should have received a copy of the license along with this
+ * work.  If not, see <http://creativecommons.org/licenses/by-nc-sa/3.0/>.
+ */
 
 * {
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
 }
 
 body, html {
     margin: 0;
     height: 100%;
-    background-color: white;
     background: url('/static/back.jpg') no-repeat;
     background-position: center;
     background-size: cover;
@@ -39,27 +48,22 @@ nav {
     backdrop-filter: blur(10px);
 }
 
-nav a {
-    text-decoration: none;
-    color: white;
+nav .right {
+    position: absolute;
+    top: 15px;
+    right: 0;
+}
+
+nav .user {
     margin-right: 20px;
-    padding: 4px 10px 4px 10px;
-    border: 1px solid white;
-    font-weight: 500;
-    border-radius: 5px;
+    text-decoration: underline;
+    padding: 0;
+    border: none;
 }
 
-nav a:hover {
-    color: black;
-    background-color: white;
-    transition: all 200ms;
-}
-
-.active {
-    color: gray;
-    border-color: gray;
-    pointer-events: none;
-    cursor: none;
+nav .user:hover {
+    color:rgb(226, 226, 226);
+    transition: all 100ms;
 }
 
 main {
@@ -72,7 +76,6 @@ main {
 footer {
     margin-bottom: 10px;
     padding: 5px;
-    color: white;
     text-align: right;
     font-size: 12px;
     border: 1px solid rgb(138, 138, 138);
