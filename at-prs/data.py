@@ -24,24 +24,30 @@ def data_index():
     req = db.execute('SELECT first_name, last_name, last_press, last_rate, img_url, admin_override FROM users WHERE id = ?', 
                     (session['user_id'],)).fetchone()
     
-    data = db.execute('SELECT id, date, press_high, press_low, heart_rate, user_state FROM data_press WHERE user_id = ?', (session['user_id'],))
+    data = db.execute('SELECT id, date, press_high, press_low, heart_rate, user_state FROM data_press WHERE user_id = ?', (session['user_id'],)).fetchall()
+    data.reverse()
 
     if request.method == "POST":
-        print(request.form)
         if 'CREATE' in request.form:
             highpr = request.form.get("highpr", None)
             lowpr = request.form.get("lowpr", None)
             hrate = request.form.get("heartrate", None)
             health = bool(request.form.get("health", False))
             error = None
-            
+
+            if session['user_id'] == 1:
+                flash("Can't write data to SYSTEM USER")
+                error = True
+
             try: 
                 highpr = int(highpr)
                 lowpr = int(lowpr)
                 hrate = int(hrate)
-            except: error = "Preasure or heart rate must be a number"
+            except: 
+                flash("Preasure or heart rate must be a number")
+                error = True
 
-            if error is None:
+            if not error:
                 db.execute('INSERT INTO data_press (date, press_high, press_low, heart_rate, user_state, user_id) VALUES (?, ?, ?, ?, ?, ?)',
                         (datetime.now(), highpr, lowpr, hrate, health, session['user_id']))
                 db.execute('UPDATE users SET last_press = ?, last_rate = ? WHERE id = ?', (f'{highpr}/{lowpr}', hrate, session['user_id']))
@@ -51,7 +57,14 @@ def data_index():
 
         if 'DELETE' in request.form:
             uid = request.form['id']
+            
+            data = db.execute('SELECT press_high, press_low, heart_rate FROM data_press WHERE user_id = ?', (1,)).fetchall()
+            data.reverse()
 
+            if data is not None and len(data) != 1:
+                db.execute('UPDATE users SET last_press = ?, last_rate = ? WHERE id = ?', (f'{data[0]["press_high"]}/{data[0]["press_low"]}', data[0]['heart_rate'], session['user_id']))
+            else:
+                db.execute('UPDATE users SET last_press = ?, last_rate = ? WHERE id = ?', ('NONE', 'NONE', session['user_id']))
             db.execute('DELETE FROM data_press WHERE id = ?', (uid,))
             db.commit()
             return redirect(url_for('admin.admin_users'))

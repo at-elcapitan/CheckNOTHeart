@@ -79,6 +79,7 @@
                 <th>Date</th>
                 <th>Preasure</th>
                 <th>Heart Rate</th>
+                <th>User State</th>
                 <th>Control</th>
             </tr>
             {% for x in data %}
@@ -86,6 +87,13 @@
                 <td>{{ x['date'][:-7] }}</td>
                 <td>{{ x['press_high'] }}/{{ x['press_low'] }}</td>
                 <td>{{ x['heart_rate'] }}</td>
+                <td>
+                    {% if x['user_state'] == 1 %}
+                    OK
+                    {% else %}
+                    BAD
+                    {% endif %}
+                </td>
                 <td>
                     <a class="btn small" onclick="DeleteI({{ x['id'] }}, '/')">Delete</a>
                 </td>
