@@ -29,3 +29,10 @@
     pointer-events: none;
     cursor: none;
 }
+
+input .light{
+    border: 1px solid rgb(179, 179, 179);
+    background-color: rgba(255, 255, 255, 0.212);
+    padding: 10px;
+    color: rgb(58, 58, 58);
+}

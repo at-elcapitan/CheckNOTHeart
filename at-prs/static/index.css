@@ -1,0 +1,203 @@
+/**
+ * at-prs (c) by Vladislav 'ElCapitan' Nazarov
+ * 
+ * at-prs is licensed under a
+ * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+ * 
+ * You should have received a copy of the license along with this
+ * work.  If not, see <http://creativecommons.org/licenses/by-nc-sa/3.0/>.
+ */
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.user-card {
+    display: flex;
+    margin: 20px;
+    width: 90%;
+    border: 1px solid rgb(138, 138, 138);
+    border-radius: 5px;
+}
+
+.user-card hr {
+    margin: 0;
+    border-color: rgb(138, 138, 138);
+}
+
+.user-card p {
+    margin: 0;
+}
+
+.user-card .user-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.info {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    width: 15%;
+}
+
+.info .image {
+    display: flex;
+    align-items : center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.info p {
+    margin-top: 10px;
+}
+
+.info .last-info {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    width: 90%;
+    min-width: 100px;
+}
+
+.last-info .info-block {
+    display: flex;
+    position: relative;
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid rgb(138, 138, 138);
+    border-radius: 5px;
+    align-items: center;
+}
+
+.info-block:first-child {
+    margin: 0;
+}
+
+.info-block img {
+    width: 25px;
+    height: 25px;
+    filter: invert(100%);
+}
+
+.info-block p {
+    position: absolute;
+    right: 5px;
+    transform: translateY(-25%);
+}
+
+.add-info {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-info .text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-info .label {
+    border: 1px solid rgb(138, 138, 138);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom: none;
+    padding: 5px;
+    text-align: center;
+    width: 50%;
+    min-width: 200px;
+}
+
+.multiple-input {
+    padding: 5px;
+}
+
+form .input {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(138, 138, 138);
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
+
+form label {
+    display: inline-block;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid rgb(138, 138, 138);
+    padding: 8px;
+    width: 300px;
+}
+
+.multiple-input input:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-left: -5px;
+    border-left: none;
+}
+
+.multiple-input input {
+    text-align: center;
+    padding: 8px;
+    border: 1px solid rgb(138, 138, 138);
+    width: 27px;
+    outline: none;
+    font-size: 16px;
+    margin-left: -5px;
+    background-color: rgba(0, 0, 0, 0.034);
+}
+
+.check {
+    margin-left: -5px;
+    padding: 8px;
+    border: 1px solid rgb(138, 138, 138);
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-left: none;
+} 
+
+.multiple-input input:hover {
+    border: 1px solid rgb(218, 218, 218);
+}
+
+.multiple-input input:focus {
+    border: 1px solid rgb(218, 218, 218);
+}
+
+form input[type='submit'] {
+    margin-top: 5px;
+    align-self: center;
+    padding: 6px 15px 6px;
+    color: rgb(75, 75, 75);
+    background-color: rgba(138, 138, 138, 0);
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    border: 1px solid rgb(163, 163, 163);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+form input[type='submit']:hover {
+    background-color: rgb(133, 133, 133);
+    color: white;
+    transition: all 300ms;
+}
+
+.db-data {
+    border: 1px solid rgb(138, 138, 138);
+    border-radius: 5px;
+    width: 90%;
+    height: 100%;
+    margin-bottom: 20px;
+}

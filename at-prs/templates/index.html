@@ -12,3 +12,65 @@
 
 {% block title %} HOME {% endblock %}
 {% block btn1 %} inactive {% endblock %}
+{% block link %} <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">{% endblock %}
+
+{% block main%}
+<div class="page">
+    <div class="user-card">
+        <div class="info">
+            <div class="image">
+                {% if img == None %}
+                <img src="{{ img }}">
+                {% else %}
+                <img class="user-img" src="{{ url_for('static', filename='baseuser.jpg') }}">
+                {% endif %}
+
+                <p>{{ uinfo['first_name'] }} {{ uinfo['last_name'] }}</p>
+
+                <div class="last-info">
+                    <div class="info-block">
+                        <img src="{{ url_for('static', filename='press.png') }}">
+                        <p>{{ uinfo['last_press'] }}</p>
+                    </div>
+                    <div class="info-block">
+                        <img src="{{ url_for('static', filename='pulse.png') }}">
+                        <p>{{ uinfo['last_rate'] }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="add-info">
+            <div class="text">
+                <span class="label">Register new measure</span>
+            </div>
+
+            <form method="post">
+                <div class="input">
+                    <div class="multiple-input">
+                        <label>Preasure</label>
+                        <input type="text" name="highpr" placeholder="120" required>
+                        <input type="text" name="lowpr" placeholder="80" required>
+                    </div>
+
+                    <div class="multiple-input">
+                        <label>Heart rate</label>
+                        <input type="text" name="heartrate" id="username" placeholder="90" required>
+                    </div>
+                    
+                    <div class="multiple-input">
+                        <label>Health state (OK/Checked)</label>
+                        <span class="check"><input type="checkbox" name="health" value="1"></span>
+                    </div>
+
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="db-data">
+        
+    </div>
+</div>
+{% endblock %}

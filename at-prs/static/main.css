@@ -16,7 +16,7 @@
 body, html {
     margin: 0;
     height: 100%;
-    background: url('/static/back.jpg') no-repeat;
+    background: url('back.jpg');
     background-position: center;
     background-size: cover;
 }
@@ -44,6 +44,8 @@ nav {
     padding: 15px;
     background-color: #2d364681;
     border: 1px solid rgb(138, 138, 138);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
     border-bottom: none;
     backdrop-filter: blur(10px);
 }
@@ -74,6 +76,8 @@ main {
 }
 
 footer {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
     margin-bottom: 10px;
     padding: 5px;
     text-align: right;
