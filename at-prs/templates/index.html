@@ -65,6 +65,16 @@
                         <label>Health state (OK/Checked)</label>
                         <span class="check"><input type="checkbox" name="health" value="1"></span>
                     </div>
+
+                    <div class="multiple-input">
+                        <label>Arm</label>
+                        <span class="check">
+                            <select name="arm">
+                                <option value="L">Left</option>
+                                <option value="R">Right</option>
+                            </select>
+                        </span>
+                    </div>
                     
                     <input type="hidden" name="CREATE"/>
                     <input type="submit" value="Submit">
@@ -80,6 +90,7 @@
                 <th>Preasure</th>
                 <th>Heart Rate</th>
                 <th>User State</th>
+                <th>Arm</th>
                 <th>Control</th>
             </tr>
             {% for x in data %}
@@ -94,6 +105,7 @@
                     BAD
                     {% endif %}
                 </td>
+                <td>{{ x['arm'] }}</td>
                 <td>
                     <a class="btn small" onclick="DeleteI({{ x['id'] }}, '/')">Delete</a>
                 </td>

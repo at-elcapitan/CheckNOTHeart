@@ -20,6 +20,7 @@ CREATE TABLE data_press (
     press_low INTEGER NOT NULL,
     heart_rate INTEGER NOT NULL,
     user_state BOOL NOT NULL,
+    arm TEXT NOT NULL,
     user_id INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES user (id)
 );

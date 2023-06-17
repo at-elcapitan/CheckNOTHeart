@@ -24,7 +24,7 @@ def data_index():
     req = db.execute('SELECT first_name, last_name, last_press, last_rate, img_url, admin_override FROM users WHERE id = ?', 
                     (session['user_id'],)).fetchone()
     
-    data = db.execute('SELECT id, date, press_high, press_low, heart_rate, user_state FROM data_press WHERE user_id = ?', (session['user_id'],)).fetchall()
+    data = db.execute('SELECT id, date, press_high, press_low, heart_rate, arm, user_state FROM data_press WHERE user_id = ?', (session['user_id'],)).fetchall()
     data.reverse()
 
     if request.method == "POST":
@@ -33,11 +33,12 @@ def data_index():
             lowpr = request.form.get("lowpr", None)
             hrate = request.form.get("heartrate", None)
             health = bool(request.form.get("health", False))
+            arm = request.form.get('arm', False)
             error = None
 
-            if session['user_id'] == 1:
+            '''if session['user_id'] == 1:
                 flash("Can't write data to SYSTEM USER")
-                error = True
+                error = True'''
 
             try: 
                 highpr = int(highpr)
@@ -48,8 +49,8 @@ def data_index():
                 error = True
 
             if not error:
-                db.execute('INSERT INTO data_press (date, press_high, press_low, heart_rate, user_state, user_id) VALUES (?, ?, ?, ?, ?, ?)',
-                        (datetime.now(), highpr, lowpr, hrate, health, session['user_id']))
+                db.execute('INSERT INTO data_press (date, press_high, press_low, heart_rate, user_state, arm, user_id) VALUES (?, ?, ?, ?, ?, ?, ?)',
+                        (datetime.now(), highpr, lowpr, hrate, health, arm, session['user_id']))
                 db.execute('UPDATE users SET last_press = ?, last_rate = ? WHERE id = ?', (f'{highpr}/{lowpr}', hrate, session['user_id']))
                 db.commit()
             
