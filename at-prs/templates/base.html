@@ -25,7 +25,6 @@
                     <a class="btn {% block btn1 %}{% endblock %}" href="/">Home</a>
                     <a class="btn {% block btn2 %}{% endblock %}" href="data">Graph</a>
                     {% if isadmin %} <a class="btn" href="admin">Admin</a> {% endif %}
-                    <a class="btn {% block btn3 %}{% endblock %}" href="about">About</a>
 
                     <div class="right">
                         Logged in as <a class="user" href="user/{{ userid }}">{{ g.username }}</a>
