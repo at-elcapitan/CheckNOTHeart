@@ -71,18 +71,12 @@ def data_index():
             return redirect(url_for('admin.admin_users'))
     return render_template('index.html', userid = session['user_id'], uinfo = req, isadmin = bool(req['admin_override']), data = data)
 
-
-@bp.route('/about')
-@login_required
-def data_about():
-    req = get_database().execute('SELECT admin_override FROM users WHERE id = ?', (session['user_id'],)).fetchone()
-
-    return render_template('about.html', userid = session['user_id'], isadmin = bool(req['admin_override']))
-
-
 @bp.route('/data')
 @login_required
 def data():
-    req = get_database().execute('SELECT admin_override FROM users WHERE id = ?', (session['user_id'],)).fetchone()
+    db = get_database()
 
-    return render_template('data.html', userid = session['user_id'], isadmin = bool(req['admin_override']))
+    req = db.execute('SELECT admin_override FROM users WHERE id = ?', (session['user_id'],)).fetchone()
+    data = db.execute('SELECT press_high, press_low, date FROM data_press WHERE user_id = ?', (session['user_id'],)).fetchall()
+
+    return render_template('data.html', userid = session['user_id'], isadmin = bool(req['admin_override']), data=data)

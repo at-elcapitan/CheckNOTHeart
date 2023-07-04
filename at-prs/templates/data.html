@@ -11,3 +11,92 @@
 {% extends 'base.html' %}
 {% block title %} GRAPH {% endblock %}
 {% block btn2 %} inactive {% endblock %}
+{% block link %} <link rel="stylesheet" href="{{ url_for('static', filename='graph.css' ) }}"> {% endblock %}
+
+{% block main %}
+    <div>
+        <canvas class="graph" id="graph_line"></canvas>
+        <canvas class="graph" id="graph_bar_high"></canvas>
+        <canvas class="graph" id="graph_bar_low"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const gline = document.getElementById('graph_line');
+        const gbarh = document.getElementById('graph_bar_high');
+        const gbarl = document.getElementById('graph_bar_low');
+        
+        Chart.defaults.color = '#FFFFFF';
+
+        new Chart(gline, {
+            type: 'line',
+            data: {
+                labels: [{% for x in data %} "{{ x['date'][:-15] }}", {% endfor %}],
+                datasets: [
+                    {
+                        label: '# high press',
+                        data: [ {% for x in data %} {{ x['press_high'] }}, {% endfor %} ],
+                        borderWidth: 1
+                    },
+                    {
+                        label: '# low press',
+                        data: [ {% for x in data %} {{ x['press_low'] }}, {% endfor %} ],
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+            }
+            }
+        });
+
+        new Chart(gbarh, {
+            type: 'bar',
+            data: {
+                labels: [{% for x in data %} "{{ x['date'][:-15] }}", {% endfor %}],
+                datasets: [
+                    {
+                        label: '# high press',
+                        data: [ {% for x in data %} {{ x['press_high'] }}, {% endfor %} ],
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+            }
+            }
+        });
+
+        new Chart(gbarl, {
+            type: 'bar',
+            data: {
+                labels: [{% for x in data %} "{{ x['date'][:-15] }}", {% endfor %}],
+                datasets: [
+                    {
+                        label: '# low press',
+                        data: [ {% for x in data %} {{ x['press_low'] }}, {% endfor %} ],
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+            }
+            }
+        });
+    </script>
+{% endblock %}
+
+{% block footer %}, Graph: <a href="https://www.chartjs.org/" target="_blank">Chart.js</a>{% endblock %}
