@@ -6,7 +6,6 @@
 # You should have received a copy of the license along with this
 # work.  If not, see <http://creativecommons.org/licenses/by-nc-sa/3.0/>.
 
-import functools
 from flask import (
     Blueprint, g, flash, redirect, render_template, request, session, url_for
 )

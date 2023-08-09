@@ -18,7 +18,7 @@ form {
     min-width: 200px;
     width: 20%;
     padding: 30px;
-    border: 1px solid rgb(204, 204, 204);
+    border: 1px solid rgba(204, 204, 204, 0.507);
     display: flex;
     flex-direction: column;
     border-radius: 4px;
@@ -31,7 +31,7 @@ form h2 {
 }
 
 form label {
-    color: rgb(71, 71, 71);
+    color: rgb(180, 180, 180);
     font-size: 12px;
     position: relative;
     top: -7px;
@@ -48,7 +48,7 @@ form input {
     border: 1px solid rgb(179, 179, 179);
     background-color: rgba(255, 255, 255, 0.212);
     padding: 10px;
-    color: rgb(58, 58, 58);
+    color: rgb(165, 165, 165);
 }
 
 form input:hover {
@@ -66,7 +66,7 @@ form input[type='submit']{
     margin-top: 10px;
     align-self: center;
     padding: 6px 15px 6px;
-    color: rgb(75, 75, 75);
+    color: rgb(131, 131, 131);
     font-weight: 500;
     font-size: 16px;
     border: 1px solid rgb(163, 163, 163);

@@ -8,7 +8,7 @@
 
 import functools
 from flask import (
-    Blueprint, g, flash, redirect, render_template, request, session, url_for
+    Blueprint, g, flash, redirect, render_template, request, session, url_for, abort
 )
 from werkzeug.security import check_password_hash
 from .database import get_database
@@ -62,12 +62,28 @@ def logout():
     session.clear()
     return redirect('/login')
 
+
 def login_required(view):
     @functools.wraps(view)
     def wrapped_view(**kwargs):
         if g.user is None:
             return redirect(url_for('authentication.login_form'))
         
+        return view(**kwargs)
+    
+    return wrapped_view
+
+
+def check_admin(view):
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        if g.user is None:
+            return redirect(url_for('authentication.login_form'))
+        
+        if not bool(get_database().execute('SELECT admin_override FROM users WHERE id = ?', 
+                                       (session['user_id'],)).fetchone()['admin_override']):
+            abort(401)
+
         return view(**kwargs)
     
     return wrapped_view

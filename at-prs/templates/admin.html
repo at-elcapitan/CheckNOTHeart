@@ -1,0 +1,62 @@
+<!--
+ at-prs (c) by Vladislav 'ElCapitan' Nazarov
+ 
+ at-prs is licensed under a
+ Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+ 
+ You should have received a copy of the license along with this
+ work.  If not, see <http://creativecommons.org/licenses/by-nc-sa/3.0/>.
+-->
+
+{% extends 'base.html' %}
+{% block btn3 %} inactive {% endblock %}
+{% block link %} <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}"> {% endblock %}
+
+{% block main %}
+
+<div class="pages">
+    <a class="btn inactive" id="userctlbtn">User CTL</a>
+    <a class="btn" id="recordctlbtn">Record CTL</a>
+</div>
+
+<div class="control" id="userctl">
+    <form method="post">
+        <div class="input">
+            <div class="multiple-input">
+                <label>Preasure</label>
+                <input type="text" name="highpr" placeholder="120" required>
+                <input type="text" name="lowpr" placeholder="80" required>
+            </div>
+
+            <div class="multiple-input">
+                <label>Heart rate</label>
+                <input type="text" name="heartrate" id="username" placeholder="90" required>
+            </div>
+            
+            <div class="multiple-input">
+                <label>Health state (OK/Checked)</label>
+                <span class="check"><input type="checkbox" name="health" value="1"></span>
+            </div>
+
+            <div class="multiple-input">
+                <label>Arm</label>
+                <span class="check">
+                    <select name="arm">
+                        <option value="L">Left</option>
+                        <option value="R">Right</option>
+                    </select>
+                </span>
+            </div>
+            
+            <input type="hidden" name="CREATE"/>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</div>
+
+<div class="control" id="recordctl" style="display: none;">
+    TestText2
+</div>
+
+<script src="{{ url_for('static', filename='admin.js') }}"></script>
+{% endblock %}

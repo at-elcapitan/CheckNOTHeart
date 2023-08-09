@@ -20,7 +20,7 @@
 {% block main %}
 <div class="page">
     <div class="user-card">
-        <div class="info">
+        <div class="info remove-self">
             <div class="image">
                 {% if img == None %}
                 <img src="{{ img }}">
@@ -42,7 +42,7 @@
                 </div>
             </div>
         </div>
-        <hr>
+        <hr class="remove-self">
         <div class="add-info">
             <div class="text">
                 <span class="label">Register new measure</span>

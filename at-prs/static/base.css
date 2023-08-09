@@ -8,6 +8,105 @@
  * work.  If not, see <http://creativecommons.org/licenses/by-nc-sa/3.0/>.
  */
 
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+}
+
+body, html {
+    margin: 0;
+    height: 100%;
+    background: url('back.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+.display {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper {
+    min-height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    margin-top: 10px;
+    padding: 15px;
+    background-color: #2d364681;
+    border: 1px solid rgb(138, 138, 138);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom: none;
+    backdrop-filter: blur(10px);
+}
+
+nav .right {
+    position: absolute;
+    top: 15px;
+    right: 0;
+}
+
+nav .user {
+    margin-right: 20px;
+    text-decoration: underline;
+    padding: 0;
+    border: none;
+}
+
+nav .user:hover {
+    color:rgb(226, 226, 226);
+    transition: all 100ms;
+}
+
+main {
+    flex: 1 1 auto;
+    background-color: #2d3646d5;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgb(138, 138, 138);
+}
+
+.bordered {
+    border: 1px solid rgb(138, 138, 138);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+footer {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-bottom: 10px;
+    padding: 5px;
+    text-align: right;
+    font-size: 12px;
+    border: 1px solid rgb(138, 138, 138);
+    border-top: none;
+    background-color: #2d364681;
+    backdrop-filter: blur(10px);
+}
+
+footer .left {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+
 .btn {
     text-decoration: none;
     margin-right: 20px;
@@ -41,4 +140,115 @@ input .light{
 .small {
     padding: 2px 5px 2px 5px;
     font-size: 15px;
+}
+
+form .input {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(138, 138, 138);
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
+
+form label {
+    display: inline-block;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid rgb(138, 138, 138);
+    padding: 8px;
+    width: 300px;
+}
+
+.multiple-input input:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-left: -5px;
+    border-left: none;
+}
+
+.multiple-input input {
+    text-align: center;
+    padding: 8px;
+    border: 1px solid rgb(138, 138, 138);
+    width: 47px;
+    outline: none;
+    font-size: 16px;
+    margin-left: -5px;
+    background-color: rgba(0, 0, 0, 0.034);
+}
+
+.check {
+    margin-left: -5px;
+    padding: 8px;
+    border: 1px solid rgb(138, 138, 138);
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-left: none;
+}
+
+.multiple-input input:hover {
+    border: 1px solid rgb(218, 218, 218);
+}
+
+.multiple-input input:focus {
+    border: 1px solid rgb(218, 218, 218);
+}
+
+form input[type='submit'] {
+    margin-top: 5px;
+    align-self: center;
+    padding: 6px 15px 6px;
+    color: rgb(75, 75, 75);
+    background-color: rgba(138, 138, 138, 0);
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    border: 1px solid rgb(163, 163, 163);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+form input[type='submit']:hover {
+    background-color: rgb(133, 133, 133);
+    color: white;
+    transition: all 300ms;
+}
+
+form input[type='text']:hover {
+    width: 30px;
+}
+
+form select {
+    background-color: rgba(138, 138, 138, 0);
+    border: 1px solid rgb(163, 163, 163);
+    border-radius: 5px;
+    padding: 3px;
+    font-size: 14px;
+}
+
+form select:hover {
+    background-color: rgba(138, 138, 138, 0.479);
+}
+
+.multiple-input {
+    padding: 5px;
+}
+
+@media (max-width:890px) {
+    .wrapper {
+        width: 95%;
+    }
+}
+
+@media (max-width:565px) {
+    .hid-565 {
+        display: none;
+    }
+}
+
+@media (max-width: 523px) {
+    label {
+        max-width: 210px !important;
+    }
 }

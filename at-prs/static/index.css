@@ -117,95 +117,6 @@
     min-width: 200px;
 }
 
-.multiple-input {
-    padding: 5px;
-}
-
-form .input {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid rgb(138, 138, 138);
-    border-radius: 5px;
-    padding: 10px;
-    width: 100%;
-}
-
-form label {
-    display: inline-block;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border: 1px solid rgb(138, 138, 138);
-    padding: 8px;
-    width: 300px;
-}
-
-.multiple-input input:last-child {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    margin-left: -5px;
-    border-left: none;
-}
-
-.multiple-input input {
-    text-align: center;
-    padding: 8px;
-    border: 1px solid rgb(138, 138, 138);
-    width: 27px;
-    outline: none;
-    font-size: 16px;
-    margin-left: -5px;
-    background-color: rgba(0, 0, 0, 0.034);
-}
-
-.check {
-    margin-left: -5px;
-    padding: 8px;
-    border: 1px solid rgb(138, 138, 138);
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
-    border-left: none;
-}
-
-.multiple-input input:hover {
-    border: 1px solid rgb(218, 218, 218);
-}
-
-.multiple-input input:focus {
-    border: 1px solid rgb(218, 218, 218);
-}
-
-form input[type='submit'] {
-    margin-top: 5px;
-    align-self: center;
-    padding: 6px 15px 6px;
-    color: rgb(75, 75, 75);
-    background-color: rgba(138, 138, 138, 0);
-    font-weight: 500;
-    font-size: 16px;
-    color: white;
-    border: 1px solid rgb(163, 163, 163);
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-form input[type='submit']:hover {
-    background-color: rgb(133, 133, 133);
-    color: white;
-    transition: all 300ms;
-}
-
-form select {
-    background-color: rgba(138, 138, 138, 0);
-    border: 1px solid rgb(163, 163, 163);
-    border-radius: 5px;
-    padding: 3px;
-    font-size: 14px;
-}
-
-form select:hover {
-    background-color: rgba(138, 138, 138, 0.479);
-}
-
 .db-data {
     border: 1px solid rgb(138, 138, 138);
     border-radius: 5px;
@@ -227,4 +138,35 @@ td, th {
 
 tr:nth-child(even) {
     background-color: rgba(255, 255, 255, 0.11);
+}
+
+@media (max-width: 1100px) {
+    img {
+        scale: 75%;
+    }
+
+    .info-block {
+        scale: 90% !important;
+        border: none !important;
+    }
+}
+
+@media (max-width:890px) {
+    .wrapper {
+        width: 95%;
+    }
+    
+    .remove-self {
+        display: none;
+    }
+}
+
+@media (max-width: 505px) {
+    label {
+        max-width: 210px;
+    }
+
+    tr {
+        display: inline-block;
+    }
 }

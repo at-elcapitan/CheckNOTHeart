@@ -1,0 +1,24 @@
+/**
+ * at-prs (c) by Vladislav 'ElCapitan' Nazarov
+ * 
+ * at-prs is licensed under a
+ * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+ * 
+ * You should have received a copy of the license along with this
+ * work.  If not, see <http://creativecommons.org/licenses/by-nc-sa/3.0/>.
+ */
+
+.control {
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    width: calc(100%-20px);
+    border: 1px solid rgb(177, 177, 177);
+    border-radius: 10px;
+}
+
+.pages {
+    padding: 14px;
+    background-color: rgba(104, 23, 23, 0.062);
+    border-bottom: 1px solid rgb(177, 177, 177);
+}
