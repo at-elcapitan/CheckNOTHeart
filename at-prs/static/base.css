@@ -116,10 +116,6 @@ form input[type='submit']:hover {
     transition: all 300ms;
 }
 
-form input[type='text']:hover {
-    width: 30px;
-}
-
 form select {
     background-color: rgba(138, 138, 138, 0);
     border: 1px solid rgb(163, 163, 163);
