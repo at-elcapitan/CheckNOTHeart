@@ -1,0 +1,108 @@
+/**
+ * at-prs (c) by Vladislav 'ElCapitan' Nazarov
+ * 
+ * at-prs is licensed under a
+ * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+ * 
+ * You should have received a copy of the license along with this
+ * work.  If not, see <http://creativecommons.org/licenses/by-nc-sa/3.0/>.
+ */
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+}
+
+body, html {
+    margin: 0;
+    height: 100%;
+    background: url('back.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+.display {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper {
+    min-height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    margin-top: 10px;
+    padding: 15px;
+    background-color: #2d364681;
+    border: 1px solid rgb(138, 138, 138);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom: none;
+    backdrop-filter: blur(10px);
+}
+
+nav .right {
+    position: absolute;
+    top: 15px;
+    right: 0;
+}
+
+nav .user {
+    margin-right: 20px;
+    text-decoration: underline;
+    padding: 0;
+    border: none;
+}
+
+nav .user:hover {
+    color:rgb(226, 226, 226);
+    transition: all 100ms;
+}
+
+main {
+    flex: 1 1 auto;
+    background-color: #2d3646d5;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgb(138, 138, 138);
+}
+
+.bordered {
+    border: 1px solid rgb(138, 138, 138);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+footer {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-bottom: 10px;
+    padding: 5px;
+    text-align: right;
+    font-size: 12px;
+    border: 1px solid rgb(138, 138, 138);
+    border-top: none;
+    background-color: #2d364681;
+    backdrop-filter: blur(10px);
+}
+
+footer .left {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
