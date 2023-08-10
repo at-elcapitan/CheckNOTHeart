@@ -43,6 +43,32 @@ input .light{
     font-size: 15px;
 }
 
+.add-info {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-info .text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-info .label {
+    border: 1px solid rgb(138, 138, 138);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom: none;
+    padding: 5px;
+    text-align: center;
+    width: 50%;
+    min-width: 200px;
+}
+
 form .input {
     display: flex;
     flex-direction: column;
@@ -128,13 +154,52 @@ form select:hover {
     background-color: rgba(138, 138, 138, 0.479);
 }
 
+form input[type='checkbox'] {
+    width: 20px !important;
+    margin: 0 !important;
+}
+
 .multiple-input {
     padding: 5px;
 }
 
+.warning {
+    display: none;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.fl-d-col {
+    flex-direction: column !important;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    text-align: left;
+    padding: 8px;
+}
+
+tr {
+    border-bottom: 1px solid rgb(138, 138, 138);
+}
+
+tr:last-child {
+    border-bottom: none;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.11);
+}
+
 @media (max-width:890px) {
     .wrapper {
-        width: 95%;
+        width: 99%;
     }
 }
 

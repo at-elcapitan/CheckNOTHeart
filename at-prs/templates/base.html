@@ -20,6 +20,15 @@
     {% block link %}{% endblock %}
 </head>
 <body>
+    <script>
+    $(document).ready(function() {
+        var width = $(window).width();
+        if (width < 435){
+          alert('Your screen is smaller than necessary. Items will be displayed incorrectly. Try turn over the device for correct displaying.');
+        }
+    });
+    </script>
+
     <div class="display">
         <div class="wrapper">
                 <nav>

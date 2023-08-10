@@ -6,7 +6,7 @@
 // You should have received a copy of the license along with this
 // work.  If not, see <http://creativecommons.org/licenses/by-nc-sa/3.0/>.
 
-function DeleteI(id, url) {
+function DeleteI(id, url, add, uid = null) {
     if (!confirm('Confirm deletion')) {
         return
     }
@@ -17,7 +17,8 @@ function DeleteI(id, url) {
         datatype : "json",
         data : {
             "id"   : id,
-            'DELETE' : " "
+            "uid"  : uid,
+            DELETE : `${add}`
         }
     })
 

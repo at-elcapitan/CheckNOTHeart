@@ -56,18 +56,20 @@ def data_index():
             return redirect(url_for('index.data_index'))
 
         if 'DELETE' in request.form:
-            uid = request.form['id']
+            rid = request.form['id']
             
-            data = db.execute('SELECT press_high, press_low, heart_rate FROM data_press WHERE user_id = ?', (1,)).fetchall()
+            data = db.execute('SELECT press_high, press_low, heart_rate FROM data_press WHERE user_id = ?', (session['user_id'],)).fetchall()
             data.reverse()
 
             if data is not None and len(data) != 1:
-                db.execute('UPDATE users SET last_press = ?, last_rate = ? WHERE id = ?', (f'{data[0]["press_high"]}/{data[0]["press_low"]}', data[0]['heart_rate'], session['user_id']))
+                db.execute('UPDATE users SET last_press = ?, last_rate = ? WHERE id = ?', (f'{data[1]["press_high"]}/{data[1]["press_low"]}', data[1]['heart_rate'], session['user_id']))
             else:
                 db.execute('UPDATE users SET last_press = ?, last_rate = ? WHERE id = ?', ('NONE', 'NONE', session['user_id']))
-            db.execute('DELETE FROM data_press WHERE id = ?', (uid,))
+
+            db.execute('DELETE FROM data_press WHERE id = ?', (rid,))
             db.commit()
-            return redirect(url_for('admin.admin_users'))
+            return redirect(url_for('index.data_index'))
+        
     return render_template('index.html', userid = session['user_id'], uinfo = req, isadmin = bool(req['admin_override']), data = data)
 
 @bp.route('/data')

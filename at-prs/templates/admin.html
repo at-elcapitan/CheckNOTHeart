@@ -15,48 +15,102 @@
 {% block main %}
 
 <div class="pages">
-    <a class="btn inactive" id="userctlbtn">User CTL</a>
-    <a class="btn" id="recordctlbtn">Record CTL</a>
+    <a class="btn inactive" href="#userctl" id="userctlbtn">User CTL</a>
+    <a class="btn" href="#recordctl" id="recordctlbtn">Record CTL</a>
 </div>
 
-<div class="control" id="userctl">
-    <form method="post">
-        <div class="input">
-            <div class="multiple-input">
-                <label>Preasure</label>
-                <input type="text" name="highpr" placeholder="120" required>
-                <input type="text" name="lowpr" placeholder="80" required>
+<div class="d-flex fl-d-col">
+    <div class="control" id="userctl">
+        <div class="add-info">
+            <div class="text">
+                <span class="label">Register new user</span>
             </div>
 
-            <div class="multiple-input">
-                <label>Heart rate</label>
-                <input type="text" name="heartrate" id="username" placeholder="90" required>
-            </div>
-            
-            <div class="multiple-input">
-                <label>Health state (OK/Checked)</label>
-                <span class="check"><input type="checkbox" name="health" value="1"></span>
-            </div>
+            <form method="post">
+                <div class="input">
+                    <div class="multiple-input">
+                        <label>Full name</label>
+                        <input type="text" name="first-name" placeholder="Set first name" required>
+                        <input type="text" name="last-name" placeholder="Set last name" required>
+                    </div>
 
-            <div class="multiple-input">
-                <label>Arm</label>
-                <span class="check">
-                    <select name="arm">
-                        <option value="L">Left</option>
-                        <option value="R">Right</option>
-                    </select>
-                </span>
-            </div>
-            
-            <input type="hidden" name="CREATE"/>
-            <input type="submit" value="Submit">
+                    <div class="multiple-input">
+                        <label>Username</label>
+                        <input type="text" name="username" placeholder="Set username" required>
+                    </div>
+
+                    <div class="multiple-input">
+                        <label>Password</label>
+                        <input type="text" name="password" placeholder="Set password" required>
+                    </div>
+
+                    <div class="multiple-input">
+                        <label>Admin override</label>
+                        <span class="check"><input type="checkbox" name="Admin override" value="1"></span>
+                    </div>
+                    
+                    <input type="hidden" name="CREATE_USER"/>
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
         </div>
-    </form>
-</div>
+        <hr>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Full Name</th>
+                <th>Control</th>
+            </tr>
+            {% for x in udata %}
+            <tr>
+                <td>{{ x['id'] }}</td>
+                <td>{{ x['username'] }}</td>
+                <td>{{ x['first_name'] }} {{ x['last_name'] }}</td>
+                <td>
+                    <a class="btn small" onclick="DeleteI({{ x['id'] }}, '/')">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 
-<div class="control" id="recordctl" style="display: none;">
-    TestText2
+    <div class="control" id="recordctl" style="display: none;">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Date</th>
+                <th>Preasure</th>
+                <th>Heart Rate</th>
+                <th>User State</th>
+                <th>Arm</th>
+                <th>Control</th>
+            </tr>
+            {% for x in mdata %}
+            <tr>
+                <td>{{ x['id'] }}</td>
+                <td>{{ x['username'] }}</td>
+                <td>{{ x['date'][:-7] }}</td>
+                <td>{{ x['press_high'] }}/{{ x['press_low'] }}</td>
+                <td>{{ x['heart_rate'] }}</td>
+                <td>
+                    {% if x['user_state'] == 1 %}
+                    OK
+                    {% else %}
+                    BAD
+                    {% endif %}
+                </td>
+                <td>{{ x['arm'] }}</td>
+                <td>
+                    <a class="btn small" onclick="DeleteI({{ x['id'] }}, '/admin', 'M', uid={{ x['user_id'] }})">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 </div>
 
 <script src="{{ url_for('static', filename='admin.js') }}"></script>
+<script src="{{ url_for('static', filename='delete.js') }}"></script>
 {% endblock %}
