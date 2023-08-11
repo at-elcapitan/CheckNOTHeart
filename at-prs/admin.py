@@ -19,7 +19,7 @@ bp = Blueprint("admin", __name__, "/admin")
 @check_admin
 def admin_main():
     db = get_database()
-
+    
     if request.method == "POST":
         print(request.form)
 

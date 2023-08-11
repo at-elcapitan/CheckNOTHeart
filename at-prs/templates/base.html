@@ -54,9 +54,13 @@
 
         <div class="alerts">
             {% for message in get_flashed_messages() %}
-            <div class="flash">{{ message }}</div>
+            <div class="flash" onmouseenter="pauseTimer()" onmouseleave="resumeTimer()" onclick="disable(this);">
+                {{ message }}
+                <div class="line"></div>
+            </div>
             {% endfor %}
-        </div>
+        </div>        
     </div>
+    <script src="{{ url_for('static', filename='flash.js') }}"></script>
 </body>
 </html>
