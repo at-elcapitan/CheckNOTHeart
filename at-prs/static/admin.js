@@ -1,6 +1,6 @@
-// at-cnh (c) by Vladislav 'ElCapitan' Nazarov
+// xnx-cnh (c) by Vladislav 'ElCapitan' Nazarov
 // 
-// at-cnh is licensed under a
+// xnx-cnh is licensed under a
 // Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 // 
 // You should have received a copy of the license along with this
