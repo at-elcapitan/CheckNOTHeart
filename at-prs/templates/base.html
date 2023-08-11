@@ -51,6 +51,12 @@
                     <div class="left">CC BY-NC-SA-3{% block footer %}{% endblock %}</div>
                 </footer>
         </div>
+
+        <div class="alerts">
+            {% for message in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+            {% endfor %}
+        </div>
     </div>
 </body>
 </html>

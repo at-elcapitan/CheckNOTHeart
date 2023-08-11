@@ -46,15 +46,19 @@ def login_form():
 
 @bp.before_app_request
 def return_to_session():
-    uid = session.get('user_id')
+    try:
+        uid = session.get('user_id')
 
-    if uid is None:
-        g.user = None
+        if uid is None:
+            g.user = None
+            return
+        
+        req = get_database().execute('SELECT * FROM users WHERE id = ?', (uid,))
+        g.user = req
+        g.username = req.fetchone()['username']
+    except:
+        session.clear()
         return
-    
-    req = get_database().execute('SELECT * FROM users WHERE id = ?', (uid,))
-    g.user = req
-    g.username = req.fetchone()['username']
 
 
 @bp.route("/logout")

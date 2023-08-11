@@ -13,7 +13,6 @@
 {% block link %} <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}"> {% endblock %}
 
 {% block main %}
-
 <div class="pages">
     <a class="btn inactive" href="#userctl" id="userctlbtn">User CTL</a>
     <a class="btn" href="#recordctl" id="recordctlbtn">Record CTL</a>
@@ -41,15 +40,15 @@
 
                     <div class="multiple-input">
                         <label>Password</label>
-                        <input type="text" name="password" placeholder="Set password" required>
+                        <input type="password" name="password" placeholder="Set password" required>
                     </div>
 
                     <div class="multiple-input">
                         <label>Admin override</label>
-                        <span class="check"><input type="checkbox" name="Admin override" value="1"></span>
+                        <span class="check"><input type="checkbox" name="admin-override" value="1"></span>
                     </div>
                     
-                    <input type="hidden" name="CREATE_USER"/>
+                    <input type="hidden" name="CREATE"/>
                     <input type="submit" value="Submit">
                 </div>
             </form>
@@ -60,6 +59,7 @@
                 <th>ID</th>
                 <th>Username</th>
                 <th>Full Name</th>
+                <th>Admin OVERRIDE</th>
                 <th>Control</th>
             </tr>
             {% for x in udata %}
@@ -67,8 +67,9 @@
                 <td>{{ x['id'] }}</td>
                 <td>{{ x['username'] }}</td>
                 <td>{{ x['first_name'] }} {{ x['last_name'] }}</td>
+                <td>{{ isadmin }}</td>
                 <td>
-                    <a class="btn small" onclick="DeleteI({{ x['id'] }}, '/')">Delete</a>
+                    <a class="btn small" onclick="DeleteI({{ x['id'] }}, '/admin', 'U')">Delete</a>
                 </td>
             </tr>
             {% endfor %}
