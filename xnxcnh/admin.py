@@ -21,8 +21,6 @@ def admin_main():
     db = get_database()
     
     if request.method == "POST":
-        print(request.form)
-
         if 'DELETE' in request.form:
             if request.form['DELETE'] == "M":
                 data_id = request.form['id']
@@ -76,7 +74,7 @@ def admin_main():
                 flash("Error: can not get username from form.")
                 error = True
 
-            if uname in db.execute("SELECT username FROM users").fetchall():
+            if uname in db.execute("SELECT username FROM users").fetchone():
                 flash("Error: user exists.")
                 error = True
 
